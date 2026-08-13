@@ -1,0 +1,22 @@
+.announcement-bar {
+  background: var(--purple-deep);
+  color: var(--white);
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.announcement-text {
+  animation: fadeSlide 0.5s ease;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}

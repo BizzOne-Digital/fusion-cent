@@ -1,0 +1,17 @@
+.settings-layout { display: grid; grid-template-columns: 200px 1fr; gap: 1.5rem; align-items: start; }
+
+.settings-tabs { background: var(--adm-white); border-radius: var(--adm-radius-lg); box-shadow: var(--adm-shadow); overflow: hidden; position: sticky; top: 80px; }
+.settings-tab { display: block; width: 100%; text-align: left; padding: 0.8rem 1.25rem; font-size: 0.86rem; font-weight: 500; color: var(--adm-gray-500); background: none; border: none; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--adm-gray-100); }
+.settings-tab:last-child { border-bottom: none; }
+.settings-tab:hover { background: var(--adm-gray-50); color: var(--adm-purple-main); }
+.settings-tab.active { background: var(--adm-purple-pale); color: var(--adm-purple-main); font-weight: 700; }
+
+.settings-content h3 { font-size: 1rem; font-weight: 700; color: var(--adm-gray-900); margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--adm-gray-100); }
+
+.faq-edit-item { display: flex; gap: 1rem; align-items: flex-start; background: var(--adm-gray-50); border-radius: var(--adm-radius); padding: 1rem; margin-bottom: 0.75rem; }
+
+@media (max-width: 768px) {
+  .settings-layout { grid-template-columns: 1fr; }
+  .settings-tabs { position: static; display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0.5rem; }
+  .settings-tab { border: 1.5px solid var(--adm-gray-200); border-radius: 8px; border-bottom: 1.5px solid var(--adm-gray-200); }
+}

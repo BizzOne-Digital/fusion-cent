@@ -1,0 +1,34 @@
+.admin-login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--adm-purple-deep) 0%, #4c1d95 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.admin-login-card {
+  background: var(--adm-white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.login-logo span { font-size: 1.5rem; color: var(--adm-purple-main); }
+.login-logo strong { display: block; font-size: 1.1rem; font-weight: 700; color: var(--adm-purple-deep); }
+.login-logo small { display: block; font-size: 0.72rem; color: var(--adm-gray-500); text-transform: uppercase; letter-spacing: 0.08em; }
+
+.admin-login-card h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--adm-gray-900); }
+.admin-login-card p { font-size: 0.88rem; color: var(--adm-gray-500); margin-bottom: 1.75rem; }
+
+.input-with-icon { position: relative; display: flex; align-items: center; }
+.input-with-icon svg { position: absolute; left: 0.875rem; color: var(--adm-gray-400); pointer-events: none; }
+.input-with-icon input { padding-left: 2.5rem !important; }

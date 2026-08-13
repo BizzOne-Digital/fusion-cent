@@ -1,0 +1,67 @@
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.pricing-card {
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  position: relative;
+  border: 1.5px solid var(--gray-100);
+}
+
+.pricing-highlight {
+  background: linear-gradient(135deg, var(--purple-deep), var(--purple-main));
+  color: var(--white);
+  border-color: transparent;
+  transform: scale(1.04);
+  box-shadow: var(--shadow-lg);
+}
+.pricing-highlight .pricing-desc { color: rgba(255,255,255,0.75); }
+.pricing-highlight .pricing-features li { color: rgba(255,255,255,0.9); }
+.pricing-highlight .check-icon { color: var(--purple-light); }
+.pricing-highlight h3, .pricing-highlight .price-amount { color: var(--white); }
+.pricing-highlight .price-from { color: rgba(255,255,255,0.65); }
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--purple-deep);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 1rem;
+  border-radius: 50px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.pricing-header { margin-bottom: 1.75rem; }
+.pricing-header h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; }
+.pricing-price { display: flex; align-items: baseline; gap: 0.25rem; margin-bottom: 0.5rem; }
+.price-from { font-size: 0.82rem; color: var(--gray-500); }
+.price-amount { font-size: 2.5rem; font-weight: 700; color: var(--purple-deep); }
+.pricing-desc { font-size: 0.88rem; color: var(--text-body); line-height: 1.5; }
+
+.pricing-features { list-style: none; margin-bottom: 1.75rem; display: flex; flex-direction: column; gap: 0.65rem; }
+.pricing-features li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; }
+.check-icon { color: var(--purple-main); flex-shrink: 0; font-size: 1rem; font-weight: 700; }
+
+.pricing-note {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding: 1.25rem 2rem;
+  background: var(--purple-bg);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  color: var(--text-body);
+}
+
+@media (max-width: 768px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+  .pricing-highlight { transform: none; }
+}

@@ -1,0 +1,40 @@
+.input-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-icon-wrap > svg:first-child {
+  position: absolute;
+  left: 0.875rem;
+  color: var(--gray-500);
+  pointer-events: none;
+  font-size: 1rem;
+}
+.input-icon-wrap input {
+  width: 100%;
+  padding-left: 2.5rem !important;
+}
+.pw-toggle {
+  position: absolute;
+  right: 0.875rem;
+  background: none;
+  border: none;
+  color: var(--gray-500);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.pw-toggle:hover { color: var(--purple-main); }
+
+.subscribe-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-body);
+  cursor: pointer;
+  line-height: 1.5;
+}
+.subscribe-check input { accent-color: var(--purple-main); margin-top: 2px; flex-shrink: 0; }
