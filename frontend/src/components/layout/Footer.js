@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMail, FiPhone, FiGlobe, FiInstagram, FiFacebook } from 'react-icons/fi';
+import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaApplePay } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import './Footer.css';
 
@@ -19,7 +20,7 @@ const Footer = () => {
       <div className="footer-top container">
         <div className="footer-brand">
           <div className="footer-logo">
-            <span>✦</span> Fusion<em>Scent</em>
+            <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="FusionScent" className="footer-logo-img" />
           </div>
           <p className="footer-tagline">Luxury Scent in a Small Bottle</p>
           <p className="footer-about">
@@ -43,8 +44,8 @@ const Footer = () => {
             <li><Link to="/shop">Shop All</Link></li>
             <li><Link to="/shop?bestseller=true">Best Sellers</Link></li>
             <li><Link to="/shop?newarrival=true">New Arrivals</Link></li>
-            <li><Link to="/shop?gender=For+Her">For Her</Link></li>
-            <li><Link to="/shop?gender=For+Him">For Him</Link></li>
+            <li><Link to="/shop?gender=For+Her">Women</Link></li>
+            <li><Link to="/shop?gender=For+Him">Men</Link></li>
             <li><Link to="/shop?gender=Unisex">Unisex</Link></li>
           </ul>
         </div>
@@ -84,6 +85,12 @@ const Footer = () => {
           <span>🔒 Secure Checkout</span>
           <span>🌿 Eco-Friendly</span>
           <span>♻️ Refillable</span>
+        </div>
+        <div className="footer-payments" aria-label="Accepted payment methods">
+          <FaCcVisa title="Visa" />
+          <FaCcMastercard title="Mastercard" />
+          <FaCcPaypal title="PayPal" />
+          <FaApplePay title="Apple Pay" />
         </div>
       </div>
     </footer>

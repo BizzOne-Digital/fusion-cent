@@ -42,8 +42,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-inner container">
         <Link to="/" className="navbar-logo">
-          <span className="logo-icon">✦</span>
-          <span className="logo-text">Fusion<em>Scent</em></span>
+          <img src={`${process.env.PUBLIC_URL}/logo.png`} alt="FusionScent" className="navbar-logo-img" />
         </Link>
 
         <ul className="navbar-links">

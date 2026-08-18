@@ -6,7 +6,11 @@ import ProductCard from '../components/common/ProductCard';
 import { getProducts, getCategories } from '../utils/api';
 import './ShopPage.css';
 
-const GENDERS = ['For Her', 'For Him', 'Unisex'];
+const GENDERS = [
+  { value: 'For Her', label: 'Women' },
+  { value: 'For Him', label: 'Men' },
+  { value: 'Unisex', label: 'Unisex' },
+];
 const SORTS = [
   { value: 'newest', label: 'Newest First' },
   { value: 'priceLow', label: 'Price: Low to High' },
@@ -118,11 +122,11 @@ const ShopPage = () => {
           <div className="filter-group">
             <h4>Gender</h4>
             {GENDERS.map(g => (
-              <label key={g} className="filter-option">
-                <input type="radio" name="gender" value={g}
-                  checked={filters.gender === g}
-                  onChange={() => setFilter('gender', g)} />
-                <span>{g}</span>
+              <label key={g.value} className="filter-option">
+                <input type="radio" name="gender" value={g.value}
+                  checked={filters.gender === g.value}
+                  onChange={() => setFilter('gender', g.value)} />
+                <span>{g.label}</span>
               </label>
             ))}
             <label className="filter-option">

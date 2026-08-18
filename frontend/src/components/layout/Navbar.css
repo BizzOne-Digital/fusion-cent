@@ -29,14 +29,7 @@
   text-decoration: none;
   flex-shrink: 0;
 }
-.logo-icon { color: var(--purple-main); font-size: 1.2rem; }
-.logo-text {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--purple-deep);
-}
-.logo-text em { color: var(--purple-main); font-style: normal; }
+.navbar-logo-img { height: 52px; width: auto; display: block; }
 
 /* Nav Links */
 .navbar-links {

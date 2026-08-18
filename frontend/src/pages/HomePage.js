@@ -10,7 +10,8 @@ import { getProducts, getCategories } from '../utils/api';
 import './HomePage.css';
 
 const categoryIcons = ['👑', '🌸', '🌿', '💎', '✨', '🎁'];
-const categoryLabels = ['For Her', 'For Him', 'Unisex', 'Best Sellers', 'New Arrivals', 'Gift Sets'];
+const categoryLabels = ['Women', 'Men', 'Unisex', 'Best Sellers', 'New Arrivals', 'Gift Sets'];
+const categoryGenderValues = ['For Her', 'For Him', 'Unisex'];
 
 const features = [
   { icon: <FiAward />, title: 'Premium Quality', desc: 'Finest fragrance ingredients from around the world' },
@@ -120,7 +121,7 @@ const HomePage = () => {
             {categoryLabels.map((label, i) => (
               <Link
                 key={label}
-                to={i < 3 ? `/shop?gender=${encodeURIComponent(label)}` : i === 3 ? '/shop?bestseller=true' : i === 4 ? '/shop?newarrival=true' : '/shop'}
+                to={i < 3 ? `/shop?gender=${encodeURIComponent(categoryGenderValues[i])}` : i === 3 ? '/shop?bestseller=true' : i === 4 ? '/shop?newarrival=true' : '/shop'}
                 className="category-chip"
               >
                 <span className="cat-icon">{categoryIcons[i]}</span>
