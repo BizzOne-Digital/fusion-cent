@@ -47,14 +47,14 @@
 .hero-eyebrow {
   display: inline-block;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--purple-light);
-  background: rgba(192, 132, 252, 0.15);
+  color: var(--white);
+  background: rgba(59, 7, 100, 0.55);
   padding: 0.35rem 1rem;
   border-radius: 50px;
-  border: 1px solid rgba(192, 132, 252, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   margin-bottom: 1.5rem;
 }
 
@@ -337,11 +337,11 @@
 }
 
 @media (max-width: 768px) {
-  .hero-inner { text-align: center; gap: 2.5rem; }
+  .hero-inner { text-align: center; gap: 2.5rem; max-width: 100%; margin-left: auto; margin-right: auto; }
   .hero-subtitle { margin: 0 auto 2rem; }
   .hero-cta { justify-content: center; }
   .hero-stats { justify-content: center; }
-  .promo-inner { grid-template-columns: 1fr; text-align: center; }
+  .promo-inner { max-width: 100%; margin-left: auto; margin-right: auto; text-align: center; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .offer-strip-inner { flex-direction: column; text-align: center; }
   .features-grid { grid-template-columns: 1fr 1fr; }
