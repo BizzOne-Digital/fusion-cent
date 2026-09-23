@@ -28,10 +28,10 @@ const AboutPage = () => (
           <div className="about-content">
             <span className="section-label">Who We Are</span>
             <h2 className="section-title">Luxury Scent in a Small Bottle</h2>
-            <p>At FusionScent, our mission is to make fragrance simple, affordable, portable, and sustainable. We create mini refillable perfumes that allow customers to enjoy their favorite scents wherever they go.</p>
-            <p style={{ marginTop: '1rem' }}>We believe great fragrance should fit into everyday life. That's why FusionScent focuses on quality, convenience, reusability, and freedom of choice — giving customers the ability to refill their perfume whenever they need it.</p>
+            <p>At FusionScent, our mission is to make fragrance simple, affordable, and authentic. We offer premium perfume decants that let customers enjoy their favorite scents without paying full bottle price.</p>
+            <p style={{ marginTop: '1rem' }}>We believe great fragrance should fit into everyday life. That's why FusionScent focuses on quality, convenience, and 100% guaranteed authenticity — giving customers confidence in every order.</p>
             <div className="about-values">
-              {['Quality', 'Convenience', 'Reusability', 'Sustainability'].map(v => (
+              {['Quality', 'Convenience', 'Authenticity', 'Value'].map(v => (
                 <span key={v} className="value-pill">{v}</span>
               ))}
             </div>
@@ -49,8 +49,8 @@ const AboutPage = () => (
         </div>
         <div className="grid-3">
           {[
-            { icon: '♻️', title: 'Refillable', desc: 'Our bottles are designed to be refilled again and again, reducing waste.' },
-            { icon: '💼', title: 'Portable', desc: 'Compact 8ml bottles that fit in any pocket, purse, or travel bag.' },
+            { icon: '✅', title: '100% Authentic', desc: 'Every decant is guaranteed authentic and quality-checked before it ships.' },
+            { icon: '💼', title: 'Great Value', desc: 'Enjoy your favorite designer fragrances as decants — without the full bottle price.' },
             { icon: '💎', title: 'Premium Quality', desc: 'Every fragrance is crafted with the finest ingredients from around the world.' },
           ].map(item => (
             <div key={item.title} className="card" style={{ padding: '2rem', textAlign: 'center' }}>

@@ -10,10 +10,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.announcement-region {
+  position: absolute;
+  left: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.15rem 0.55rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
 }
 
 .announcement-text {
   animation: fadeSlide 0.5s ease;
+}
+
+@media (max-width: 560px) {
+  .announcement-region { display: none; }
 }
 
 @keyframes fadeSlide {

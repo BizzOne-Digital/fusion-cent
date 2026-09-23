@@ -4,11 +4,11 @@ import { FiStar } from 'react-icons/fi';
 import './StaticPages.css';
 
 const reviews = [
-  { name: 'Sarah K.', city: 'Toronto', rating: 5, date: 'Aug 2026', comment: 'The best mini perfume I\'ve ever used! Long-lasting and absolutely worth it. The refillable design is genius — I\'ve already refilled it twice and it still looks brand new.' },
+  { name: 'Sarah K.', city: 'Toronto', rating: 5, date: 'Aug 2026', comment: 'The best perfume decant I\'ve ever used! Long-lasting and absolutely worth it. 100% authentic, exactly as described.' },
   { name: 'James T.', city: 'Vancouver', rating: 5, date: 'Jul 2026', comment: 'Elegant packaging and amazing fragrance. Highly recommended. Bought the Discovery Set for my wife and she absolutely loves it. Will be ordering again.' },
   { name: 'Sophia L.', city: 'Montreal', rating: 5, date: 'Jul 2026', comment: 'FusionScent has become my go-to brand for every occasion. The scents are sophisticated but not overpowering. Perfect for the office.' },
   { name: 'Ahmed R.', city: 'Calgary', rating: 4, date: 'Jun 2026', comment: 'Great quality and fast shipping. The bottle fits perfectly in my suit pocket. Noir Intense is my new signature scent. Highly recommend to anyone who wants to smell premium without breaking the bank.' },
-  { name: 'Priya M.', city: 'Ottawa', rating: 5, date: 'Jun 2026', comment: 'I love how portable these are! I keep one in my gym bag, one in my car, and one at work. The refillable system is also very eco-friendly, which I appreciate.' },
+  { name: 'Priya M.', city: 'Ottawa', rating: 5, date: 'Jun 2026', comment: 'I love how portable these are! I keep one in my gym bag, one in my car, and one at work. Great value compared to buying the full bottle.' },
   { name: 'Lucas B.', city: 'Edmonton', rating: 5, date: 'May 2026', comment: 'Ordered the Collection Set as a gift. The packaging was beautiful and the scents are divine. My sister was over the moon. Excellent customer service too — they answered my questions within an hour.' },
 ];
 

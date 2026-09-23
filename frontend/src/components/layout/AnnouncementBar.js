@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './AnnouncementBar.css';
 
 const messages = [
-  '🚚 Free Shipping on Orders Over $100',
+  '🚚 Free Canada Shipping on Orders Over $150',
   '🎁 Subscribe & Get 10% Off Your First Order',
-  '✨ Mini Refillable Perfumes — Luxury on the Go',
-  '🌿 Sustainable. Portable. Luxurious.',
+  '✨ Premium Perfume Decants — Luxury on the Go',
+  '✅ 100% Guaranteed Authenticity & Secure Ordering',
 ];
 
 const AnnouncementBar = () => {
@@ -18,6 +18,7 @@ const AnnouncementBar = () => {
 
   return (
     <div className="announcement-bar">
+      <span className="announcement-region">🇨🇦 CA</span>
       <span className="announcement-text">{messages[idx]}</span>
     </div>
   );

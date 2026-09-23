@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMail, FiPhone, FiGlobe, FiInstagram, FiFacebook } from 'react-icons/fi';
-import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaApplePay } from 'react-icons/fa';
+import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaApplePay, FaGooglePay } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import './Footer.css';
 
@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
           <p className="footer-tagline">Luxury Scent in a Small Bottle</p>
           <p className="footer-about">
-            Mini refillable perfumes crafted for everyday luxury. Quality, convenience, and sustainability in every bottle.
+            Premium perfume decants crafted for everyday luxury. 100% authentic, quality-checked, and shipped with care.
           </p>
           <div className="footer-contact">
             <a href="tel:9054622387"><FiPhone /> 905-462-2387</a>
@@ -83,14 +83,15 @@ const Footer = () => {
         <p>&copy; {new Date().getFullYear()} FusionScent. All rights reserved.</p>
         <div className="footer-badges">
           <span>🔒 Secure Checkout</span>
-          <span>🌿 Eco-Friendly</span>
-          <span>♻️ Refillable</span>
+          <span>✅ 100% Guaranteed Authenticity</span>
+          <span>🚚 Free CA Shipping Over $150</span>
         </div>
         <div className="footer-payments" aria-label="Accepted payment methods">
           <FaCcVisa title="Visa" />
           <FaCcMastercard title="Mastercard" />
-          <FaCcPaypal title="PayPal" />
           <FaApplePay title="Apple Pay" />
+          <FaGooglePay title="Google Pay" />
+          <FaCcPaypal title="PayPal" />
         </div>
       </div>
     </footer>

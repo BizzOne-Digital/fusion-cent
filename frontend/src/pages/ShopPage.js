@@ -75,7 +75,7 @@ const ShopPage = () => {
       <div className="shop-hero">
         <div className="container">
           <h1>Our Collection</h1>
-          <p>Mini refillable luxury perfumes — for every mood, every moment</p>
+          <p>Premium perfume decants — for every mood, every moment</p>
         </div>
       </div>
 

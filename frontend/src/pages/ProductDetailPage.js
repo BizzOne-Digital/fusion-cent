@@ -146,9 +146,9 @@ const ProductDetailPage = () => {
           )}
 
           <div className="pdp-perks">
-            <span>🚚 Free shipping over $100</span>
+            <span>🚚 Free CA shipping over $150</span>
             <span>🔒 Secure checkout</span>
-            <span>♻️ Refillable bottle</span>
+            <span>✅ 100% guaranteed authentic</span>
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@ const categoryGenderValues = ['For Her', 'For Him', 'Unisex'];
 const features = [
   { icon: <FiAward />, title: 'Premium Quality', desc: 'Finest fragrance ingredients from around the world' },
   { icon: <FiShield />, title: 'Long Lasting', desc: 'Scents that stay with you throughout the day' },
-  { icon: <FiRefreshCw />, title: 'Refillable Design', desc: 'Eco-conscious refillable bottles — waste-free luxury' },
+  { icon: <FiRefreshCw />, title: '100% Authentic', desc: 'Guaranteed authenticity on every decant, verified before it ships' },
   { icon: <FiShield />, title: 'Secure Payment', desc: '100% safe and secure checkout experience' },
   { icon: <FiTruck />, title: 'Easy Returns', desc: 'Hassle-free return within 30 days' },
   { icon: <FiTruck />, title: 'Fast Shipping', desc: 'Worldwide delivery to your doorstep' },
@@ -25,7 +25,7 @@ const features = [
 const testimonials = [
   { name: 'Sarah K.', rating: 5, comment: 'The best mini perfume I\'ve ever used! Long-lasting and absolutely worth it. Perfect for travel.' },
   { name: 'James T.', rating: 5, comment: 'Elegant packaging and amazing fragrance. Highly recommended. My wife loves her bottle.' },
-  { name: 'Sophia L.', rating: 5, comment: 'FusionScent has become my go-to brand for every occasion. Love the refillable concept!' },
+  { name: 'Sophia L.', rating: 5, comment: 'FusionScent has become my go-to brand for every occasion. Love the decant concept!' },
 ];
 
 const StarRating = ({ n }) => (
@@ -71,7 +71,7 @@ const HomePage = () => {
     <>
       <Helmet>
         <title>FusionScent - Luxury Scent in a Small Bottle</title>
-        <meta name="description" content="Mini refillable perfumes — luxury, sustainable, and portable. Shop FusionScent." />
+        <meta name="description" content="Premium perfume decants — luxury, authentic, and portable. Shop FusionScent." />
       </Helmet>
 
       {/* ─── HERO ─── */}
@@ -89,7 +89,7 @@ const HomePage = () => {
               Defines <em>You</em>
             </h1>
             <p className="hero-subtitle">
-              Discover luxury mini refillable perfumes crafted to leave a lasting impression — wherever life takes you.
+              Discover luxury perfume decants crafted to leave a lasting impression — wherever life takes you.
             </p>
             <div className="hero-cta">
               <Link to="/shop" className="btn btn-primary btn-lg">
@@ -104,7 +104,7 @@ const HomePage = () => {
               <div className="stat-divider" />
               <div className="stat"><strong>10k+</strong><span>Happy Customers</span></div>
               <div className="stat-divider" />
-              <div className="stat"><strong>100%</strong><span>Refillable</span></div>
+              <div className="stat"><strong>100%</strong><span>Authentic</span></div>
             </div>
           </div>
         </div>
@@ -241,7 +241,7 @@ const HomePage = () => {
       {/* ─── SPECIAL OFFER STRIP ─── */}
       <section className="offer-strip">
         <div className="container offer-strip-inner">
-          <p>🎁 Subscribe & get <strong>FREE SHIPPING</strong> + <strong>10% off</strong> your first order</p>
+          <p>🎁 Subscribe & get <strong>10% off</strong> your first order — plus <strong>free Canada shipping</strong> on orders over $150</p>
           <Link to="/register" className="btn btn-white btn-sm">Subscribe Now</Link>
         </div>
       </section>
