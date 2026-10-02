@@ -32,6 +32,7 @@ app.use('/api/reviews', require('./routes/reviewRoutes'));
 app.use('/api/upload', require('./routes/uploadRoutes'));
 app.use('/api/settings', require('./routes/settingsRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/payments', require('./routes/paymentRoutes'));
 
 app.get('/', (req, res) => res.json({ message: 'FusionScent API Running' }));
 

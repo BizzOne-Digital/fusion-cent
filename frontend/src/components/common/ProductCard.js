@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
         <div className="product-card-badges">
           {product.isBestSeller && <span className="badge badge-gold">Best Seller</span>}
           {product.isNewArrival && <span className="badge badge-purple">New</span>}
-          {discount > 0 && <span className="badge" style={{ background: '#fef2f2', color: '#dc2626' }}>-{discount}%</span>}
+          {discount > 0 && <span className="badge" style={{ background: '#dc2626', color: '#fff' }}>-{discount}%</span>}
         </div>
 
         <div className="product-card-actions">

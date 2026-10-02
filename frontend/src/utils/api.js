@@ -16,6 +16,10 @@ export const createOrder = (data) => api.post('/orders', data);
 export const getMyOrders = () => api.get('/orders/my');
 export const getOrderById = (id) => api.get(`/orders/${id}`);
 
+// Payments
+export const createCheckoutSession = (data) => api.post('/payments/create-checkout-session', data);
+export const verifyCheckoutSession = (sessionId) => api.get(`/payments/verify/${sessionId}`);
+
 // Reviews
 export const getProductReviews = (productId) => api.get(`/reviews/product/${productId}`);
 export const createReview = (data) => api.post('/reviews', data);

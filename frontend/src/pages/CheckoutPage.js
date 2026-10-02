@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { FiTruck, FiCreditCard, FiCheck } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
-import { createOrder } from '../utils/api';
+import { createOrder, createCheckoutSession } from '../utils/api';
 import toast from 'react-hot-toast';
 import './CheckoutPage.css';
 
@@ -37,7 +37,7 @@ const CheckoutPage = () => {
   const handlePlaceOrder = async () => {
     setLoading(true);
     try {
-      const { data } = await createOrder({
+      const orderPayload = {
         items: cartItems.map(i => ({ product: i._id, name: i.name, image: i.images?.[0]?.url, price: i.price, quantity: i.qty })),
         shippingAddress: shipping,
         paymentMethod,
@@ -47,7 +47,15 @@ const CheckoutPage = () => {
         couponCode: coupon,
         discount: discountAmount,
         isSubscriber: user?.isSubscribed,
-      });
+      };
+
+      if (paymentMethod === 'stripe') {
+        const { data } = await createCheckoutSession(orderPayload);
+        window.location.href = data.url;
+        return;
+      }
+
+      const { data } = await createOrder(orderPayload);
       clearCart();
       toast.success('Order placed successfully!');
       navigate('/order-success', { state: { orderId: data._id } });

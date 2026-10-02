@@ -5,16 +5,17 @@ import { Link } from 'react-router-dom';
 import './StaticPages.css';
 
 const faqs = [
-  { q: 'What size are FusionScent perfume bottles?', a: 'Our signature mini perfume bottles are 8ml — compact enough to fit in any pocket, purse, or carry-on bag, but generous enough to last weeks of daily use.' },
-  { q: 'Are the bottles really refillable?', a: 'Yes! Every FusionScent bottle is designed to be refilled. Simply purchase a refill of your favorite scent and snap it in. This reduces plastic waste and saves you money in the long run.' },
-  { q: 'How long does an 8ml bottle last?', a: 'With average daily use of 3–4 sprays, an 8ml bottle typically lasts 2–4 weeks. The longevity also depends on the fragrance concentration — our Eau de Parfum formulas tend to last longer on the skin.' },
-  { q: 'Do you offer free shipping?', a: 'Yes! We offer free shipping on all orders over $100. Subscribers also get free shipping on their first order regardless of amount, along with a 10% discount.' },
-  { q: 'What is your return policy?', a: 'We accept returns within 30 days of delivery for unopened, unused products in original packaging. If you received a damaged or incorrect item, we will replace it free of charge.' },
-  { q: 'How do I get the 10% first-order discount?', a: 'Subscribe to our newsletter when registering your account. You will receive a discount code via email. Apply it at checkout to save 10% on your first order, plus get free shipping.' },
-  { q: 'Do you ship internationally?', a: 'Yes, we ship worldwide. International shipping rates and delivery times vary by destination. You will see the exact shipping cost at checkout before you confirm your order.' },
-  { q: 'Are your fragrances suitable for sensitive skin?', a: 'Our fragrances are crafted with high-quality ingredients and are generally suitable for most skin types. If you have known fragrance sensitivities or allergies, we recommend checking the ingredient list or consulting with us before purchase.' },
-  { q: 'Can I buy in bulk or wholesale?', a: 'Yes, we offer bulk and wholesale pricing for retailers and events. Contact us at fusion.scent@yahoo.com with details about your requirements and we will get back to you within 48 hours.' },
-  { q: 'How do I track my order?', a: 'Once your order ships, you will receive a confirmation email with a tracking number. You can also log into your account and visit "My Orders" to view real-time status updates.' },
+  { q: 'What is FusionScent?', a: 'FusionScent is based in Ontario, Canada. We offer decants down to 10ml bottles and a subscription service, so you can explore different scents before committing to buy a full-size bottle of perfume.' },
+  { q: 'Do you sell full-size bottles?', a: 'Yes, but only for our niche fragrance collection (Dubai/UAE perfumes). For decants, we offer 10ml or 30ml of designer perfumes.' },
+  { q: 'Are these perfumes authentic?', a: 'Definitely — 100% authenticity. Our perfumes come from an authorized supplier.' },
+  { q: 'How does the subscription work?', a: 'Our subscription service is convenient and cost-effective for enjoying a variety of fragrances. Choose your perfume and we\'ll ship your order. First month: you\'ll receive a confirmation and your order ships within 5 business days of subscribing. Second month and ongoing: your subscription renews automatically, and you can change your scent at the end of each billing cycle — orders ship within 5 business days.' },
+  { q: 'Can I cancel my subscription?', a: 'Yes — to avoid being charged, cancel at least 7 days before your next billing date.' },
+  { q: 'What is your return policy?', a: 'We guarantee our perfume is genuine and hand-decanted under sanitation guidelines from the original manufacturer bottle. Decants are final sale — non-refundable and non-returnable — due to personal hygiene and safety regulations, unless the item arrives damaged or defective (replaced within 30 days of delivery; email fusionscent@yahoo.com with your order number and photos). Full-size bottles can be returned only if completely unused, unopened, and the seal/cellophane is intact — contact us within 10 days of delivery to start a return. All international orders are final sale.' },
+  { q: 'How does the refund process work?', a: 'Once we receive and inspect a returned item, refunds are issued to your original payment method. Processing times vary by payment provider — FusionScent is not responsible for delays caused by your bank.' },
+  { q: 'What are your shipping destinations and costs?', a: 'Canada: typically around $6.99 (free for subscription orders). United States: international shipping applies, typically around $10.99.' },
+  { q: 'What are your delivery times?', a: 'Standard delivery within Canada typically takes 5–10 business days after shipping, and can run longer for rural locations or around holidays. If an item is temporarily out of stock, we\'ll notify you of any delay. Packages returned due to an incorrect address are non-refundable — please keep your shipping info up to date in your account.' },
+  { q: 'How do I get the 10% first-order discount?', a: 'Subscribe to our newsletter when registering your account. You will receive a discount code via email. Apply it at checkout to save 10% on your first order.' },
+  { q: 'How do I track my order?', a: 'Once your order ships, log into your account and visit "My Orders" to view real-time status updates.' },
 ];
 
 const FAQPage = () => {

@@ -1,21 +1,54 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { verifyCheckoutSession } from '../utils/api';
+import { useCart } from '../context/CartContext';
 
 export const OrderSuccessPage = () => {
   const { state } = useLocation();
+  const [searchParams] = useSearchParams();
+  const { clearCart } = useCart();
+  const sessionId = searchParams.get('session_id');
+  const orderIdFromQuery = searchParams.get('orderId');
+  const [verifying, setVerifying] = useState(!!sessionId);
+  const [verified, setVerified] = useState(false);
+
+  useEffect(() => {
+    if (!sessionId) return;
+    verifyCheckoutSession(sessionId)
+      .then(({ data }) => {
+        if (data.paid) { setVerified(true); clearCart(); }
+      })
+      .catch(() => {})
+      .finally(() => setVerifying(false));
+  }, [sessionId]);
+
+  const orderId = state?.orderId || orderIdFromQuery;
+
+  if (verifying) {
+    return (
+      <div style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="spinner" />
+      </div>
+    );
+  }
+
   return (
     <>
       <Helmet><title>Order Confirmed - FusionScent</title></Helmet>
       <div style={{ minHeight: '70vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '4rem 1.5rem', gap: '1rem' }}>
-        <div style={{ fontSize: '5rem' }}>🎉</div>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', color: 'var(--purple-deep)' }}>Order Placed!</h1>
+        <div style={{ fontSize: '5rem' }}>{sessionId && !verified ? '⚠️' : '🎉'}</div>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2.2rem', color: 'var(--purple-deep)' }}>
+          {sessionId && !verified ? 'Payment Not Confirmed' : 'Order Placed!'}
+        </h1>
         <p style={{ color: 'var(--text-body)', maxWidth: '400px', lineHeight: 1.7 }}>
-          Thank you for your order. We've received it and will start processing it shortly. You'll receive a confirmation email soon.
+          {sessionId && !verified
+            ? "We couldn't confirm your payment yet. If you were charged, please contact us with your order ID."
+            : "Thank you for your order. We've received it and will start processing it shortly. You'll receive a confirmation email soon."}
         </p>
-        {state?.orderId && (
+        {orderId && (
           <p style={{ fontSize: '0.85rem', background: 'var(--purple-pale)', padding: '0.5rem 1.25rem', borderRadius: '50px', color: 'var(--purple-main)', fontWeight: 600 }}>
-            Order ID: {state.orderId}
+            Order ID: {orderId}
           </p>
         )}
         <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>

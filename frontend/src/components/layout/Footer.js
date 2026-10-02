@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMail, FiPhone, FiGlobe, FiInstagram, FiFacebook } from 'react-icons/fi';
-import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaApplePay, FaGooglePay } from 'react-icons/fa';
+import { FaCcVisa, FaCcMastercard, FaCcAmex, FaApplePay, FaGooglePay } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import './Footer.css';
 
@@ -44,9 +44,6 @@ const Footer = () => {
             <li><Link to="/shop">Shop All</Link></li>
             <li><Link to="/shop?bestseller=true">Best Sellers</Link></li>
             <li><Link to="/shop?newarrival=true">New Arrivals</Link></li>
-            <li><Link to="/shop?gender=For+Her">Women</Link></li>
-            <li><Link to="/shop?gender=For+Him">Men</Link></li>
-            <li><Link to="/shop?gender=Unisex">Unisex</Link></li>
           </ul>
         </div>
 
@@ -91,7 +88,7 @@ const Footer = () => {
           <FaCcMastercard title="Mastercard" />
           <FaApplePay title="Apple Pay" />
           <FaGooglePay title="Google Pay" />
-          <FaCcPaypal title="PayPal" />
+          <FaCcAmex title="American Express" />
         </div>
       </div>
     </footer>
