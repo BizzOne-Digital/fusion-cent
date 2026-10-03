@@ -28,8 +28,8 @@ const Footer = () => {
           </p>
           <div className="footer-contact">
             <a href="tel:9054622387"><FiPhone /> 905-462-2387</a>
-            <a href="mailto:fusion.scent@yahoo.com"><FiMail /> fusion.scent@yahoo.com</a>
-            <a href="https://www.fusionscent.com" target="_blank" rel="noreferrer"><FiGlobe /> fusionscent.com</a>
+            <a href="mailto:fusionscent@yahoo.com"><FiMail /> fusionscent@yahoo.com</a>
+            <a href="https://www.fusionscent.ca" target="_blank" rel="noreferrer"><FiGlobe /> fusionscent.ca</a>
           </div>
           <div className="footer-social">
             <a href="#!" aria-label="Instagram"><FiInstagram /></a>

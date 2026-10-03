@@ -42,11 +42,11 @@ const ContactPage = () => {
               </div>
               <div className="contact-detail">
                 <FiMail />
-                <div><strong>Email</strong><span>fusion.scent@yahoo.com</span></div>
+                <div><strong>Email</strong><span>fusionscent@yahoo.com</span></div>
               </div>
               <div className="contact-detail">
                 <FiGlobe />
-                <div><strong>Website</strong><span>www.fusionscent.com</span></div>
+                <div><strong>Website</strong><span>www.fusionscent.ca</span></div>
               </div>
 
               <div style={{ marginTop: '2rem', background: 'var(--purple-bg)', borderRadius: 'var(--radius)', padding: '1.5rem' }}>
