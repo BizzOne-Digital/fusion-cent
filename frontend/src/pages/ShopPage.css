@@ -143,7 +143,8 @@
 .sidebar-close { display: none; }
 
 @media (max-width: 900px) {
-  .shop-layout { grid-template-columns: 1fr; }
+  .shop-layout { grid-template-columns: minmax(0, 1fr); }
+  .shop-main { min-width: 0; }
   .shop-sidebar {
     position: fixed;
     top: 0; left: 0;
