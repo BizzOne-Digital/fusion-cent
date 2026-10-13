@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { FiCheck } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import './StaticPages.css';
+import './PricingPage.css';
 
 const tiers = [
   {

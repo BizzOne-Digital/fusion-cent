@@ -162,4 +162,7 @@
 
 @media (max-width: 600px) {
   .shop-grid { grid-template-columns: repeat(2, 1fr); }
+  .shop-toolbar { flex-wrap: wrap; }
+  .shop-toolbar-right { flex-wrap: wrap; width: 100%; }
+  .sort-select { flex: 1; min-width: 0; }
 }
