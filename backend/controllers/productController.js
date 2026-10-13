@@ -3,10 +3,11 @@ const asyncHandler = require('express-async-handler');
 
 // @GET /api/products
 const getProducts = asyncHandler(async (req, res) => {
-  const { category, gender, search, featured, bestseller, newarrival, sort, page = 1, limit = 12 } = req.query;
+  const { category, gender, catalogType, search, featured, bestseller, newarrival, sort, page = 1, limit = 12 } = req.query;
   const query = {};
   if (category) query.category = category;
   if (gender) query.gender = gender;
+  if (catalogType) query.catalogType = catalogType;
   if (featured) query.isFeatured = true;
   if (bestseller) query.isBestSeller = true;
   if (newarrival) query.isNewArrival = true;

@@ -11,7 +11,7 @@ import './HomePage.css';
 
 const categoryIcons = ['✨', '🎁', '🌿', '💎'];
 const categoryLabels = ['Best Sellers', 'New Arrivals', 'Decants', 'All Perfumes'];
-const categoryLinks = ['/shop?bestseller=true', '/shop?newarrival=true', '/shop', '/shop'];
+const categoryLinks = ['/shop?bestseller=true', '/shop?newarrival=true', '/shop?catalogType=decant', '/shop'];
 
 const features = [
   { icon: <FiAward />, title: 'Premium Quality', desc: 'Finest fragrance ingredients from around the world' },

@@ -9,6 +9,7 @@ const productSchema = new mongoose.Schema({
   comparePrice: { type: Number, default: 0 },
   category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
   gender: { type: String, enum: ['For Her', 'For Him', 'Unisex'], default: 'Unisex' },
+  catalogType: { type: String, enum: ['dubai', 'decant'], default: 'dubai' },
   size: { type: String, default: '8ml' },
   stock: { type: Number, default: 0 },
   images: [{ url: String, public_id: String }],

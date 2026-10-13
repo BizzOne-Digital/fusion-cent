@@ -11,6 +11,10 @@ const GENDERS = [
   { value: 'For Him', label: 'Men' },
   { value: 'Unisex', label: 'Unisex' },
 ];
+const CATALOG_TYPES = [
+  { value: 'dubai', label: 'Dubai & Niche Perfumes' },
+  { value: 'decant', label: 'Designer Decants (10ml)' },
+];
 const SORTS = [
   { value: 'newest', label: 'Newest First' },
   { value: 'priceLow', label: 'Price: Low to High' },
@@ -30,6 +34,7 @@ const ShopPage = () => {
   const [filters, setFilters] = useState({
     gender: searchParams.get('gender') || '',
     category: searchParams.get('category') || '',
+    catalogType: searchParams.get('catalogType') || '',
     search: searchParams.get('search') || '',
     sort: searchParams.get('sort') || 'newest',
     bestseller: searchParams.get('bestseller') || '',
@@ -64,7 +69,7 @@ const ShopPage = () => {
   };
 
   const clearFilters = () => {
-    setFilters({ gender: '', category: '', search: '', sort: 'newest', bestseller: '', newarrival: '' });
+    setFilters({ gender: '', category: '', catalogType: '', search: '', sort: 'newest', bestseller: '', newarrival: '' });
     setPage(1);
   };
 
@@ -116,6 +121,24 @@ const ShopPage = () => {
                 checked={filters.category === ''}
                 onChange={() => setFilter('category', '')} />
               <span>All Categories</span>
+            </label>
+          </div>
+
+          <div className="filter-group">
+            <h4>Collection</h4>
+            {CATALOG_TYPES.map(c => (
+              <label key={c.value} className="filter-option">
+                <input type="radio" name="catalogType" value={c.value}
+                  checked={filters.catalogType === c.value}
+                  onChange={() => setFilter('catalogType', c.value)} />
+                <span>{c.label}</span>
+              </label>
+            ))}
+            <label className="filter-option">
+              <input type="radio" name="catalogType" value=""
+                checked={filters.catalogType === ''}
+                onChange={() => setFilter('catalogType', '')} />
+              <span>All</span>
             </label>
           </div>
 
