@@ -103,7 +103,7 @@
 
 .shop-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
@@ -161,7 +161,7 @@
 }
 
 @media (max-width: 600px) {
-  .shop-grid { grid-template-columns: repeat(2, 1fr); }
+  .shop-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
   .shop-toolbar { flex-wrap: wrap; }
   .shop-toolbar-right { flex-wrap: wrap; width: 100%; }
   .sort-select { flex: 1; min-width: 0; }

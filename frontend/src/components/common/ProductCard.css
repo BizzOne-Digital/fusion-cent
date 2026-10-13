@@ -97,3 +97,13 @@
 .product-card-price { display: flex; align-items: center; gap: 0.5rem; }
 .price-current { font-size: 1.05rem; font-weight: 700; color: var(--purple-deep); }
 .price-original { font-size: 0.85rem; color: var(--gray-500); text-decoration: line-through; }
+
+@media (max-width: 600px) {
+  .product-card-info { padding: 0.65rem 0.65rem 0.75rem; }
+  .product-card-gender { font-size: 0.62rem; margin-bottom: 0.2rem; }
+  .product-card-name { font-size: 0.82rem; margin-bottom: 0.25rem; }
+  .product-card-rating { font-size: 0.72rem; margin-bottom: 0.3rem; }
+  .price-current { font-size: 0.88rem; }
+  .price-original { font-size: 0.72rem; }
+  .card-action-btn { width: 30px; height: 30px; font-size: 0.85rem; }
+}
