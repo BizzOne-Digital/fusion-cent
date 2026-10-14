@@ -11,7 +11,11 @@ const getProducts = asyncHandler(async (req, res) => {
   if (featured) query.isFeatured = true;
   if (bestseller) query.isBestSeller = true;
   if (newarrival) query.isNewArrival = true;
-  if (search) query.$text = { $search: search };
+  if (search) {
+    const escaped = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(escaped, 'i');
+    query.$or = [{ name: regex }, { description: regex }, { tags: regex }];
+  }
 
   const sortOptions = { newest: '-createdAt', priceLow: 'price', priceHigh: '-price', rating: '-rating' };
   const sortBy = sortOptions[sort] || '-createdAt';
