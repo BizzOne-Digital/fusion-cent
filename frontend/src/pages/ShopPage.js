@@ -45,6 +45,22 @@ const ShopPage = () => {
     getCategories().then(r => setCategories(r.data)).catch(() => {});
   }, []);
 
+  // Re-sync from the URL whenever it changes externally (e.g. navbar search,
+  // a "Shop ->" link from another page) — the Shop page component doesn't
+  // remount on query-only navigation, so this can't just be the initial state.
+  useEffect(() => {
+    setFilters({
+      gender: searchParams.get('gender') || '',
+      category: searchParams.get('category') || '',
+      catalogType: searchParams.get('catalogType') || '',
+      search: searchParams.get('search') || '',
+      sort: searchParams.get('sort') || 'newest',
+      bestseller: searchParams.get('bestseller') || '',
+      newarrival: searchParams.get('newarrival') || '',
+    });
+    setPage(1);
+  }, [searchParams]);
+
   useEffect(() => {
     const load = async () => {
       setLoading(true);
