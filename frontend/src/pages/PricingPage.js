@@ -10,7 +10,7 @@ const tiers = [
     name: 'Starter',
     price: '20',
     desc: 'Perfect for trying your first FusionScent',
-    features: ['1 × 8ml Refillable Bottle', 'Choice of 1 Fragrance', 'Free Gift Wrapping', 'Standard Shipping'],
+    features: ['1 × 10ml Decant Bottle', 'Choice of 1 Fragrance', 'Free Gift Wrapping', 'Standard Shipping'],
     cta: 'Shop Starter',
     link: '/shop',
     highlight: false,
@@ -19,7 +19,7 @@ const tiers = [
     name: 'Discovery Set',
     price: '35',
     desc: 'Our most popular option — explore 3 scents',
-    features: ['3 × 8ml Refillable Bottles', 'Choice of 3 Fragrances', 'Free Gift Wrapping', 'Priority Shipping', '10% Off Future Refills'],
+    features: ['3 × 10ml Decant Bottles', 'Choice of 3 Fragrances', 'Free Gift Wrapping', 'Priority Shipping', '10% Off Future Orders'],
     cta: 'Shop Discovery',
     link: '/shop',
     highlight: true,
@@ -29,7 +29,7 @@ const tiers = [
     name: 'Collection',
     price: '50',
     desc: 'The full FusionScent experience',
-    features: ['5 × 8ml Refillable Bottles', 'Choice of 5 Fragrances', 'Premium Gift Box', 'Free Shipping', '15% Off Future Refills', 'Exclusive Member Scent'],
+    features: ['5 × 10ml Decant Bottles', 'Choice of 5 Fragrances', 'Premium Gift Box', 'Free Shipping', '15% Off Future Orders', 'Exclusive Member Scent'],
     cta: 'Shop Collection',
     link: '/shop',
     highlight: false,
@@ -75,7 +75,7 @@ const PricingPage = () => (
         </div>
 
         <div className="pricing-note">
-          <p>💡 All bottles are <strong>refillable</strong>. Once you have your bottle, refills start from just $12 — saving you money every time.</p>
+          <p>💡 All decants are <strong>100% authentic</strong>, hand-decanted from the original bottle under sanitation guidelines.</p>
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '2rem' }}>

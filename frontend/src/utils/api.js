@@ -27,4 +27,7 @@ export const createReview = (data) => api.post('/reviews', data);
 // Settings
 export const getSettings = () => api.get('/settings');
 
+// Subscribers
+export const subscribeEmail = (email) => api.post('/subscribers', { email });
+
 export default api;

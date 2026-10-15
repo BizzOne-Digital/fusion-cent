@@ -3,16 +3,26 @@ import { Link } from 'react-router-dom';
 import { FiMail, FiPhone, FiGlobe, FiInstagram, FiFacebook } from 'react-icons/fi';
 import { FaCcVisa, FaCcMastercard, FaCcAmex, FaApplePay, FaGooglePay } from 'react-icons/fa';
 import toast from 'react-hot-toast';
+import { subscribeEmail } from '../../utils/api';
 import './Footer.css';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+  const [subscribing, setSubscribing] = useState(false);
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (!email) return;
-    toast.success('Subscribed! 10% off code sent to your email.');
-    setEmail('');
+    if (!email || subscribing) return;
+    setSubscribing(true);
+    try {
+      await subscribeEmail(email);
+      toast.success("Subscribed! We'll be in touch with your 10% off code.");
+      setEmail('');
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Could not subscribe, please try again.');
+    } finally {
+      setSubscribing(false);
+    }
   };
 
   return (

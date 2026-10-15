@@ -76,7 +76,7 @@ const CartPage = () => {
             <span>{shippingPrice === 0 ? '🎉 Free' : `$${shippingPrice.toFixed(2)}`}</span>
           </div>
           {shippingPrice > 0 && (
-            <p className="free-ship-hint">Add ${(100 - itemsPrice).toFixed(2)} more for free shipping</p>
+            <p className="free-ship-hint">Add ${(150 - itemsPrice).toFixed(2)} more for free shipping</p>
           )}
           <div className="summary-row total"><span>Total</span><span>${totalPrice.toFixed(2)}</span></div>
           <button className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', marginBottom: '0.75rem' }} onClick={handleCheckout}>
@@ -87,7 +87,7 @@ const CartPage = () => {
           </Link>
           <div className="cart-trust">
             <span>🔒 Secure Checkout</span>
-            <span>🚚 Free Shipping $100+</span>
+            <span>🚚 Free Shipping $150+</span>
           </div>
         </div>
       </div>

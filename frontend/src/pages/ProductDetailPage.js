@@ -52,7 +52,11 @@ const ProductDetailPage = () => {
         {/* Images */}
         <div className="pdp-images">
           <div className="pdp-img-main">
-            <img src={images[activeImg]?.url} alt={product.name} />
+            <img
+              src={images[activeImg]?.url}
+              alt={product.name}
+              onError={(e) => { e.target.onerror = null; e.target.src = `${process.env.PUBLIC_URL}/logo.png`; }}
+            />
             {discount > 0 && <span className="pdp-discount-badge">-{discount}%</span>}
           </div>
           {images.length > 1 && (

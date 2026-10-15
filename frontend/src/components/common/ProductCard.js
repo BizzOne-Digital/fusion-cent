@@ -15,7 +15,13 @@ const ProductCard = ({ product }) => {
     <div className="product-card card">
       <div className="product-card-img-wrap">
         <Link to={`/shop/${product.slug}`}>
-          <img src={img} alt={product.name} className="product-card-img" loading="lazy" />
+          <img
+            src={img}
+            alt={product.name}
+            className="product-card-img"
+            loading="lazy"
+            onError={(e) => { e.target.onerror = null; e.target.src = `${process.env.PUBLIC_URL}/logo.png`; }}
+          />
         </Link>
 
         <div className="product-card-badges">

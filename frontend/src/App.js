@@ -9,6 +9,7 @@ import { CartProvider } from './context/CartContext';
 import Layout from './components/layout/Layout';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import ScrollToTop from './components/common/ScrollToTop';
+import ErrorBoundary from './components/common/ErrorBoundary';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -49,6 +50,7 @@ function App() {
                 success: { iconTheme: { primary: '#c084fc', secondary: '#fff' } },
               }}
             />
+            <ErrorBoundary>
             <Routes>
               <Route path="/admin/*" element={<AdminApp />} />
               <Route path="/" element={<Layout />}>
@@ -71,6 +73,7 @@ function App() {
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>
+            </ErrorBoundary>
           </Router>
         </CartProvider>
       </AuthProvider>

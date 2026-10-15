@@ -1060,12 +1060,12 @@ const productsData = [
   {
     name: 'Prada Milano Infusion', slug: 'prada-milano-infusion-decant', description: 'Prada Milano Infusion — 10ml decant of the original designer perfume.', shortDescription: 'Original brand decant, 10ml',
     price: 45, comparePrice: cp(45, 10), gender: 'Unisex', size: '10ml', stock: 30, catalogType: 'decant', tags: ['decant', 'prada', 'unisex'],
-    images: [{ url: '/products/72_Prada_Milano_Infusion.jpg', public_id: '' }], notes: { top: [], middle: [], base: [] },
+    images: [{ url: '/products/73_Chloe_Love.jpg', public_id: '' }], notes: { top: [], middle: [], base: [] },
   },
   {
     name: 'Chloe Love', slug: 'chloe-love-decant', description: 'Love by Chloé — 10ml decant of the original designer perfume.', shortDescription: 'Original brand decant, 10ml',
     price: 45, comparePrice: cp(45, 10), gender: 'For Her', size: '10ml', stock: 30, catalogType: 'decant', tags: ['decant', 'chloe', 'women'],
-    images: [{ url: '/products/73_Chloe_Love.jpg', public_id: '' }], notes: { top: [], middle: [], base: [] },
+    images: [{ url: '/products/72_Prada_Milano_Infusion.jpg', public_id: '' }], notes: { top: [], middle: [], base: [] },
   },
   {
     name: 'Dior Sauvage',  slug: 'dior-sauvage-man-decant', description: 'Dior Sauvage — 10ml decant of the original designer perfume for men.', shortDescription: 'Original brand decant, 10ml',

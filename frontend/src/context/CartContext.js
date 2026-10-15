@@ -5,8 +5,13 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    const saved = localStorage.getItem('fsCart');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('fsCart');
+      const parsed = saved ? JSON.parse(saved) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
   });
 
   useEffect(() => {
@@ -38,7 +43,7 @@ export const CartProvider = ({ children }) => {
   const clearCart = () => setCartItems([]);
 
   const itemsPrice = cartItems.reduce((a, i) => a + i.price * i.qty, 0);
-  const shippingPrice = itemsPrice >= 100 ? 0 : 9.99;
+  const shippingPrice = itemsPrice >= 150 ? 0 : 9.99;
   const totalPrice = itemsPrice + shippingPrice;
   const cartCount = cartItems.reduce((a, i) => a + i.qty, 0);
 

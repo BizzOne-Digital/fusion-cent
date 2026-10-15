@@ -4,7 +4,7 @@ import { getProducts, getCategories, createProduct, updateProduct, deleteProduct
 import toast from 'react-hot-toast';
 import './ProductsPage.css';
 
-const emptyForm = { name: '', shortDescription: '', description: '', price: '', comparePrice: '', category: '', gender: 'Unisex', size: '8ml', stock: 0, isFeatured: false, isBestSeller: false, isNewArrival: false, tags: '' };
+const emptyForm = { name: '', shortDescription: '', description: '', price: '', comparePrice: '', category: '', gender: 'Unisex', size: '10ml', stock: 0, isFeatured: false, isBestSeller: false, isNewArrival: false, tags: '' };
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -51,7 +51,7 @@ const ProductsPage = () => {
       comparePrice: product.comparePrice || '',
       category: product.category?._id || '',
       gender: product.gender,
-      size: product.size || '8ml',
+      size: product.size || '10ml',
       stock: product.stock,
       isFeatured: product.isFeatured,
       isBestSeller: product.isBestSeller,
@@ -237,7 +237,7 @@ const ProductsPage = () => {
                 </div>
                 <div className="adm-form-group">
                   <label>Size</label>
-                  <input value={form.size} onChange={e => setForm(f => ({ ...f, size: e.target.value }))} placeholder="8ml" />
+                  <input value={form.size} onChange={e => setForm(f => ({ ...f, size: e.target.value }))} placeholder="10ml" />
                 </div>
               </div>
               <div className="adm-form-group">
