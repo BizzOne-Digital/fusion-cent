@@ -42,7 +42,7 @@ const ProductDetailPage = () => {
 
   return (
     <>
-      <Helmet><title>{product.name} - FusionScent</title></Helmet>
+      <Helmet><title>{`${product.name} - FusionScent`}</title></Helmet>
 
       <div className="pdp-breadcrumb container">
         <Link to="/"><span>Home</span></Link> / <Link to="/shop"><span>Shop</span></Link> / <span>{product.name}</span>

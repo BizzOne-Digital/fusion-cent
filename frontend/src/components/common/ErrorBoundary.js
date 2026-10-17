@@ -6,8 +6,8 @@ class ErrorBoundary extends React.Component {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError() {
-    return { hasError: true };
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
   }
 
   componentDidCatch(error, info) {
@@ -28,6 +28,11 @@ class ErrorBoundary extends React.Component {
           <p style={{ color: 'var(--text-body)', maxWidth: '400px' }}>
             Please try refreshing the page. If the problem continues, clearing your cart/site data may help.
           </p>
+          {this.state.error && (
+            <pre style={{ maxWidth: '90vw', overflowX: 'auto', background: '#f3f0f8', padding: '0.75rem 1rem', borderRadius: '8px', fontSize: '0.78rem', color: '#6b21a8', textAlign: 'left' }}>
+              {this.state.error.message}
+            </pre>
+          )}
           <button className="btn btn-primary" onClick={this.handleReset}>Go to Homepage</button>
         </div>
       );

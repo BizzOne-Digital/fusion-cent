@@ -30,7 +30,7 @@ const CartPage = () => {
 
   return (
     <>
-      <Helmet><title>Cart ({cartCount}) - FusionScent</title></Helmet>
+      <Helmet><title>{`Cart (${cartCount}) - FusionScent`}</title></Helmet>
 
       <div className="page-hero-sm">
         <div className="container">
