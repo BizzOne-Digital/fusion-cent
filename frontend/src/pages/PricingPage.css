@@ -45,6 +45,8 @@
 .pricing-price { display: flex; align-items: baseline; gap: 0.25rem; margin-bottom: 0.5rem; }
 .price-from { font-size: 0.82rem; color: var(--gray-500); }
 .price-amount { font-size: 2.5rem; font-weight: 700; color: var(--purple-deep); }
+.price-compare { font-size: 1.1rem; color: var(--gray-500); text-decoration: line-through; margin-left: 0.4rem; }
+.pricing-highlight .price-compare { color: rgba(255,255,255,0.6); }
 .pricing-desc { font-size: 0.88rem; color: var(--text-body); line-height: 1.5; }
 
 .pricing-features { list-style: none; margin-bottom: 1.75rem; display: flex; flex-direction: column; gap: 0.65rem; }

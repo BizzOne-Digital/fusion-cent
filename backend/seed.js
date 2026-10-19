@@ -1077,6 +1077,20 @@ const productsData = [
     price: 48, comparePrice: 0, gender: 'For Him', size: '10ml', stock: 0, catalogType: 'decant', tags: ['decant', 'ysl', 'men'],
     images: [{ url: '/products/75_YSL_Y_EDP_Man.jpg', public_id: '' }], notes: { top: [], middle: [], base: [] },
   },
+  {
+    name: 'Payment Test — $1',
+    slug: 'payment-test-1',
+    description: 'A $1 test item for safely verifying live checkout and payment processing without risking a real-value dispute. Not for sale to customers.',
+    shortDescription: 'Internal use only — for testing live payments',
+    price: 1,
+    comparePrice: 0,
+    gender: 'Unisex',
+    size: 'N/A',
+    stock: 999,
+    images: [{ url: '/logo.png', public_id: '' }],
+    notes: { top: [], middle: [], base: [] },
+    tags: ['internal', 'test'],
+  },
 ];
 
 const seed = async () => {
