@@ -34,7 +34,7 @@ const Navbar = () => {
     { to: '/about', label: 'About Us' },
     { to: '/gallery', label: 'Gallery' },
     { to: '/testimonials', label: 'Testimonials' },
-    { to: '/pricing', label: 'Pricing' },
+    { to: '/pricing', label: 'Shop Bundle + Save' },
     { to: '/faq', label: 'FAQ' },
   ];
 
@@ -121,7 +121,7 @@ const Navbar = () => {
           <NavLink to="/about" onClick={() => setMenuOpen(false)}>About Us</NavLink>
           <NavLink to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</NavLink>
           <NavLink to="/testimonials" onClick={() => setMenuOpen(false)}>Testimonials</NavLink>
-          <NavLink to="/pricing" onClick={() => setMenuOpen(false)}>Pricing</NavLink>
+          <NavLink to="/pricing" onClick={() => setMenuOpen(false)}>Shop Bundle + Save</NavLink>
           <NavLink to="/faq" onClick={() => setMenuOpen(false)}>FAQ</NavLink>
           <NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink>
           <NavLink to="/cart" onClick={() => setMenuOpen(false)}>Cart ({cartCount})</NavLink>

@@ -59,11 +59,6 @@ const PricingPage = () => (
               {t.badge && <span className="pricing-badge">{t.badge}</span>}
               <div className="pricing-header">
                 <h3>{t.name}</h3>
-                <div className="pricing-price">
-                  <span className="price-from">From</span>
-                  <span className="price-amount">${t.price}</span>
-                  {t.comparePrice && <span className="price-compare">${t.comparePrice}</span>}
-                </div>
                 <p className="pricing-desc">{t.desc}</p>
               </div>
               <ul className="pricing-features">
