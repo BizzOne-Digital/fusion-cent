@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler');
 const Order = require('../models/Order');
+const { notifyNewOrder } = require('../utils/mailer');
 
 const getStripe = () => require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -77,6 +78,7 @@ const verifySession = asyncHandler(async (req, res) => {
     order.paymentResult = { id: session.payment_intent, status: session.payment_status, update_time: new Date().toISOString() };
     if (order.status === 'pending') order.status = 'processing';
     await order.save();
+    notifyNewOrder(order);
   }
 
   res.json({ order, paid: session.payment_status === 'paid' });

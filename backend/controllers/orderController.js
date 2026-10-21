@@ -1,5 +1,6 @@
 const Order = require('../models/Order');
 const asyncHandler = require('express-async-handler');
+const { notifyNewOrder } = require('../utils/mailer');
 
 // @POST /api/orders
 const createOrder = asyncHandler(async (req, res) => {
@@ -9,6 +10,7 @@ const createOrder = asyncHandler(async (req, res) => {
     user: req.user._id, items, shippingAddress, paymentMethod,
     itemsPrice, shippingPrice, totalPrice, couponCode, discount, isSubscriber,
   });
+  notifyNewOrder(order);
   res.status(201).json(order);
 });
 
