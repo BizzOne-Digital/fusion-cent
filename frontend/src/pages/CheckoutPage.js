@@ -141,7 +141,7 @@ const CheckoutPage = () => {
                 {[
                   { value: 'cod', label: '💵 Cash on Delivery', desc: 'Pay when your order arrives' },
                   { value: 'bank', label: '🏦 Bank Transfer', desc: 'Transfer to our account — we confirm within 24hrs' },
-                  { value: 'stripe', label: '💳 Credit / Debit Card', desc: 'Secure online payment via Stripe' },
+                  { value: 'stripe', label: '💳 Card or Afterpay', desc: 'Pay by card, or choose Afterpay for 4 interest-free installments' },
                 ].map(opt => (
                   <label key={opt.value} className={`payment-option ${paymentMethod === opt.value ? 'selected' : ''}`}>
                     <input type="radio" name="payment" value={opt.value} checked={paymentMethod === opt.value} onChange={() => setPaymentMethod(opt.value)} />
