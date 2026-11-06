@@ -168,7 +168,7 @@ const CheckoutPage = () => {
             <div className="checkout-card">
               <h2>Review Your Order</h2>
               {cartItems.map(item => (
-                <div key={item._id} className="review-item-row">
+                <div key={item.cartKey} className="review-item-row">
                   <img src={item.images?.[0]?.url || 'https://via.placeholder.com/60?text=FS'} alt={item.name} />
                   <div className="review-item-info">
                     <strong>{item.name}</strong>
@@ -191,7 +191,7 @@ const CheckoutPage = () => {
         <div className="checkout-summary">
           <h3>Order Summary</h3>
           {cartItems.map(i => (
-            <div key={i._id} className="checkout-summary-item">
+            <div key={i.cartKey} className="checkout-summary-item">
               <span>{i.name} × {i.qty}</span>
               <span>${(i.price * i.qty).toFixed(2)}</span>
             </div>

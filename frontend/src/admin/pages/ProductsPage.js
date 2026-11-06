@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import './ProductsPage.css';
 
 const emptyForm = { name: '', shortDescription: '', description: '', price: '', comparePrice: '', category: '', gender: 'Unisex', size: '10ml', stock: 0, isFeatured: false, isBestSeller: false, isNewArrival: false, tags: '' };
+const emptyVariant = { size: '', price: '', comparePrice: '', stock: 0 };
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -14,6 +15,7 @@ const ProductsPage = () => {
   const [modal, setModal] = useState(false);
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(emptyForm);
+  const [variants, setVariants] = useState([]);
   const [images, setImages] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -37,6 +39,7 @@ const ProductsPage = () => {
   const openCreate = () => {
     setEditing(null);
     setForm(emptyForm);
+    setVariants([]);
     setImages([]);
     setModal(true);
   };
@@ -58,9 +61,14 @@ const ProductsPage = () => {
       isNewArrival: product.isNewArrival,
       tags: product.tags?.join(', ') || '',
     });
+    setVariants((product.variants || []).map(v => ({ size: v.size, price: v.price, comparePrice: v.comparePrice || '', stock: v.stock })));
     setImages(product.images || []);
     setModal(true);
   };
+
+  const addVariant = () => setVariants(prev => [...prev, { ...emptyVariant }]);
+  const updateVariant = (i, key, value) => setVariants(prev => prev.map((v, idx) => idx === i ? { ...v, [key]: value } : v));
+  const removeVariant = (i) => setVariants(prev => prev.filter((_, idx) => idx !== i));
 
   const handleImageUpload = async (e) => {
     const files = Array.from(e.target.files);
@@ -94,6 +102,9 @@ const ProductsPage = () => {
         stock: Number(form.stock),
         images,
         tags: form.tags.split(',').map(t => t.trim()).filter(Boolean),
+        variants: variants
+          .filter(v => v.size && v.price !== '')
+          .map(v => ({ size: v.size, price: Number(v.price), comparePrice: Number(v.comparePrice) || 0, stock: Number(v.stock) || 0 })),
       };
       if (editing) {
         await updateProduct(editing, payload);
@@ -261,6 +272,20 @@ const ProductsPage = () => {
                   <label>Stock</label>
                   <input type="number" min="0" value={form.stock} onChange={e => setForm(f => ({ ...f, stock: e.target.value }))} />
                 </div>
+              </div>
+
+              <div className="adm-form-group">
+                <label>Size Options (e.g. 5ml, 10ml, 30ml, Full Bottle) — shown as choices on one product page</label>
+                {variants.map((v, i) => (
+                  <div key={i} style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr 0.8fr auto', gap: '0.5rem', marginBottom: '0.5rem', alignItems: 'center' }}>
+                    <input placeholder="Size (e.g. 5ml)" value={v.size} onChange={e => updateVariant(i, 'size', e.target.value)} />
+                    <input type="number" min="0" step="0.01" placeholder="Price" value={v.price} onChange={e => updateVariant(i, 'price', e.target.value)} />
+                    <input type="number" min="0" step="0.01" placeholder="Compare $" value={v.comparePrice} onChange={e => updateVariant(i, 'comparePrice', e.target.value)} />
+                    <input type="number" min="0" placeholder="Stock" value={v.stock} onChange={e => updateVariant(i, 'stock', e.target.value)} />
+                    <button type="button" className="adm-btn adm-btn-outline adm-btn-sm" onClick={() => removeVariant(i)}><FiX /></button>
+                  </div>
+                ))}
+                <button type="button" className="adm-btn adm-btn-outline adm-btn-sm" onClick={addVariant}><FiPlus /> Add Size Option</button>
               </div>
               <div className="form-grid-2">
                 <div className="adm-form-group">

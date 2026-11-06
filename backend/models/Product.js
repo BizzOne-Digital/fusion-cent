@@ -12,6 +12,12 @@ const productSchema = new mongoose.Schema({
   catalogType: { type: String, enum: ['dubai', 'decant'], default: 'dubai' },
   size: { type: String, default: '10ml' },
   stock: { type: Number, default: 0 },
+  variants: [{
+    size: { type: String, required: true },
+    price: { type: Number, required: true, min: 0 },
+    comparePrice: { type: Number, default: 0 },
+    stock: { type: Number, default: 0 },
+  }],
   images: [{ url: String, public_id: String }],
   isFeatured: { type: Boolean, default: false },
   isBestSeller: { type: Boolean, default: false },

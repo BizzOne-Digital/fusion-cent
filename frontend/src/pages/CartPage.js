@@ -42,7 +42,7 @@ const CartPage = () => {
         {/* Items */}
         <div className="cart-items-wrap">
           {cartItems.map(item => (
-            <div key={item._id} className="cart-item">
+            <div key={item.cartKey} className="cart-item">
               <div className="cart-item-img-wrap">
                 <img
                   src={item.images?.[0]?.url || 'https://via.placeholder.com/100?text=FS'}
@@ -55,14 +55,14 @@ const CartPage = () => {
                 <p className="cart-item-gender">{item.gender} · {item.size}</p>
                 <div className="cart-item-bottom">
                   <div className="cart-qty-control">
-                    <button onClick={() => updateQty(item._id, item.qty - 1)} disabled={item.qty <= 1}><FiMinus /></button>
+                    <button onClick={() => updateQty(item.cartKey, item.qty - 1)} disabled={item.qty <= 1}><FiMinus /></button>
                     <span>{item.qty}</span>
-                    <button onClick={() => updateQty(item._id, item.qty + 1)}><FiPlus /></button>
+                    <button onClick={() => updateQty(item.cartKey, item.qty + 1)}><FiPlus /></button>
                   </div>
                   <span className="cart-item-price">${(item.price * item.qty).toFixed(2)}</span>
                 </div>
               </div>
-              <button className="cart-remove-btn" onClick={() => removeFromCart(item._id)} aria-label="Remove"><FiTrash2 /></button>
+              <button className="cart-remove-btn" onClick={() => removeFromCart(item.cartKey)} aria-label="Remove"><FiTrash2 /></button>
             </div>
           ))}
         </div>

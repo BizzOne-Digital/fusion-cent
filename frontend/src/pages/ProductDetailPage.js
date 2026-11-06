@@ -15,6 +15,7 @@ const ProductDetailPage = () => {
   const [loading, setLoading] = useState(true);
   const [qty, setQty] = useState(1);
   const [activeImg, setActiveImg] = useState(0);
+  const [variantIdx, setVariantIdx] = useState(0);
 
   useEffect(() => {
     const load = async () => {
@@ -22,6 +23,7 @@ const ProductDetailPage = () => {
       try {
         const { data } = await getProductBySlug(slug);
         setProduct(data);
+        setVariantIdx(0);
         const r = await getProductReviews(data._id);
         setReviews(r.data);
       } catch (e) { console.error(e); }
@@ -37,8 +39,15 @@ const ProductDetailPage = () => {
     ? product.images
     : [{ url: 'https://via.placeholder.com/600x600?text=FusionScent' }];
 
-  const discount = product.comparePrice > product.price
-    ? Math.round((1 - product.price / product.comparePrice) * 100) : 0;
+  const hasVariants = product.variants?.length > 0;
+  const selected = hasVariants ? product.variants[variantIdx] : null;
+  const displayPrice = selected ? selected.price : product.price;
+  const displayComparePrice = selected ? selected.comparePrice : product.comparePrice;
+  const displaySize = selected ? selected.size : product.size;
+  const displayStock = selected ? selected.stock : product.stock;
+
+  const discount = displayComparePrice > displayPrice
+    ? Math.round((1 - displayPrice / displayComparePrice) * 100) : 0;
 
   return (
     <>
@@ -95,15 +104,33 @@ const ProductDetailPage = () => {
           )}
 
           <div className="pdp-price">
-            <span className="pdp-price-current">${product.price.toFixed(2)}</span>
-            {product.comparePrice > product.price && (
-              <span className="pdp-price-original">${product.comparePrice.toFixed(2)}</span>
+            <span className="pdp-price-current">${displayPrice.toFixed(2)}</span>
+            {displayComparePrice > displayPrice && (
+              <span className="pdp-price-original">${displayComparePrice.toFixed(2)}</span>
             )}
           </div>
 
           <p className="pdp-desc">{product.shortDescription || product.description}</p>
 
-          {product.size && (
+          {hasVariants ? (
+            <div className="pdp-size">
+              <strong>Size:</strong>
+              <div className="pdp-size-options">
+                {product.variants.map((v, i) => (
+                  <button
+                    key={v.size}
+                    type="button"
+                    className={`pdp-size-option ${i === variantIdx ? 'active' : ''} ${v.stock === 0 ? 'disabled' : ''}`}
+                    onClick={() => setVariantIdx(i)}
+                    disabled={v.stock === 0}
+                  >
+                    <span>{v.size}</span>
+                    <span className="pdp-size-option-price">${v.price.toFixed(2)}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : product.size && (
             <div className="pdp-size">
               <strong>Size:</strong> <span>{product.size}</span>
             </div>
@@ -118,17 +145,17 @@ const ProductDetailPage = () => {
             </div>
             <button
               className="btn btn-primary btn-lg"
-              onClick={() => addToCart(product, qty)}
-              disabled={product.stock === 0}
+              onClick={() => addToCart({ ...product, price: displayPrice, comparePrice: displayComparePrice, size: displaySize, stock: displayStock }, qty)}
+              disabled={displayStock === 0}
             >
               <FiShoppingBag />
-              {product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+              {displayStock === 0 ? 'Out of Stock' : 'Add to Cart'}
             </button>
             <button className="wishlist-btn"><FiHeart /></button>
           </div>
 
-          {product.stock > 0 && product.stock < 10 && (
-            <p className="stock-warning">Only {product.stock} left in stock!</p>
+          {displayStock > 0 && displayStock < 10 && (
+            <p className="stock-warning">Only {displayStock} left in stock!</p>
           )}
 
           {/* Notes */}

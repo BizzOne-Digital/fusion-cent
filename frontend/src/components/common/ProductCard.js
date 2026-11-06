@@ -8,8 +8,14 @@ const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
 
   const img = product.images?.[0]?.url || 'https://via.placeholder.com/400x400?text=FusionScent';
-  const discount = product.comparePrice > product.price
-    ? Math.round((1 - product.price / product.comparePrice) * 100) : 0;
+  const hasVariants = product.variants?.length > 0;
+  const lowestVariant = hasVariants
+    ? product.variants.reduce((min, v) => v.price < min.price ? v : min, product.variants[0])
+    : null;
+  const cardPrice = hasVariants ? lowestVariant.price : product.price;
+  const cardComparePrice = hasVariants ? lowestVariant.comparePrice : product.comparePrice;
+  const discount = cardComparePrice > cardPrice
+    ? Math.round((1 - cardPrice / cardComparePrice) * 100) : 0;
 
   return (
     <div className="product-card card">
@@ -32,13 +38,19 @@ const ProductCard = ({ product }) => {
 
         <div className="product-card-actions">
           <button className="card-action-btn" aria-label="Wishlist"><FiHeart /></button>
-          <button
-            className="card-action-btn add-cart-btn"
-            onClick={() => addToCart(product)}
-            aria-label="Add to cart"
-          >
-            <FiShoppingBag />
-          </button>
+          {hasVariants ? (
+            <Link to={`/shop/${product.slug}`} className="card-action-btn add-cart-btn" aria-label="Choose size">
+              <FiShoppingBag />
+            </Link>
+          ) : (
+            <button
+              className="card-action-btn add-cart-btn"
+              onClick={() => addToCart(product)}
+              aria-label="Add to cart"
+            >
+              <FiShoppingBag />
+            </button>
+          )}
         </div>
       </div>
 
@@ -55,9 +67,10 @@ const ProductCard = ({ product }) => {
         )}
 
         <div className="product-card-price">
-          <span className="price-current">${product.price.toFixed(2)}</span>
-          {product.comparePrice > product.price && (
-            <span className="price-original">${product.comparePrice.toFixed(2)}</span>
+          {hasVariants && <span className="price-from">From</span>}
+          <span className="price-current">${cardPrice.toFixed(2)}</span>
+          {cardComparePrice > cardPrice && (
+            <span className="price-original">${cardComparePrice.toFixed(2)}</span>
           )}
         </div>
       </div>

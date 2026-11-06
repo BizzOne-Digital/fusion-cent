@@ -4,9 +4,11 @@ import toast from 'react-hot-toast';
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+  const cartKeyOf = (item) => `${item._id}_${item.size || ''}`;
+
   const sanitize = (items) => (Array.isArray(items) ? items : [])
     .filter(i => i && i._id && i.name)
-    .map(i => ({ ...i, price: Number(i.price) || 0, qty: Math.max(1, Number(i.qty) || 1) }));
+    .map(i => ({ ...i, price: Number(i.price) || 0, qty: Math.max(1, Number(i.qty) || 1), cartKey: cartKeyOf(i) }));
 
   const [cartItems, setCartItems] = useState(() => {
     try {
@@ -26,25 +28,26 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   const addToCart = (product, qty = 1) => {
+    const key = cartKeyOf(product);
     setCartItems(prev => {
-      const existing = prev.find(i => i._id === product._id);
+      const existing = prev.find(i => i.cartKey === key);
       if (existing) {
         toast.success('Cart updated');
-        return prev.map(i => i._id === product._id ? { ...i, qty: i.qty + qty } : i);
+        return prev.map(i => i.cartKey === key ? { ...i, qty: i.qty + qty } : i);
       }
       toast.success(`${product.name} added to cart`);
-      return [...prev, { ...product, price: Number(product.price) || 0, qty: Math.max(1, Number(qty) || 1) }];
+      return [...prev, { ...product, price: Number(product.price) || 0, qty: Math.max(1, Number(qty) || 1), cartKey: key }];
     });
   };
 
-  const removeFromCart = (id) => {
-    setCartItems(prev => prev.filter(i => i._id !== id));
+  const removeFromCart = (cartKey) => {
+    setCartItems(prev => prev.filter(i => i.cartKey !== cartKey));
     toast.success('Item removed');
   };
 
-  const updateQty = (id, qty) => {
+  const updateQty = (cartKey, qty) => {
     if (qty < 1) return;
-    setCartItems(prev => prev.map(i => i._id === id ? { ...i, qty } : i));
+    setCartItems(prev => prev.map(i => i.cartKey === cartKey ? { ...i, qty } : i));
   };
 
   const clearCart = () => setCartItems([]);
